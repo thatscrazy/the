@@ -35,6 +35,19 @@ end
 
 describe Cards do
 	describe "They should have a total of 52" do
+		class Deck
+			include Cards
+
+			def initialize
+				create_deck
+			end
+		end
+
+		deck = Deck.new
+		it "It is 52 cards before shuffling" do
+		  length = deck.show_deck.count
+			length.must_equal 52
+		end
 	end
 end
 

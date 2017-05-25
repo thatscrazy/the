@@ -1,6 +1,6 @@
 module Cards
 	DECK = {
-		SUITS: {
+		SUIT: {
 			SPADES:  {  two:   2,
 								  three: 3,
 									four:	 4,
@@ -46,7 +46,7 @@ module Cards
 									ace: 	14
 			},
 	
-			CLUB: {  two:   2,
+			DIAMONDS: { two:   2,
 								  three: 3,
 									four:	 4,
 									five:  5,
@@ -64,9 +64,15 @@ module Cards
   }	
 
 	def create_deck
-		@show_deck = []
-		CARDS[:SUIT].each do | suit, name_and_value |
-			name_and_value.each { | card_name, value | @deck << "{#{card_name}(#{value} of #{suit}" }
+		@deck = []
+		Cards::DECK[:SUIT].each do | suit, name_and_value |
+			name_and_value.each { | card_name, value | @deck << "#{card_name}(#{value}) of #{suit}" }
 		end 
+	end
+	def show_deck
+		return @deck
+	end	
+	def shuffle
+		@deck = @deck.shuffle
 	end
 end

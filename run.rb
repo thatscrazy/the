@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
-require_relative './games.rb'
+require_relative './holdem.rb'
 require_relative './cards.rb'
 
 class Game
-	include Games
+	include HoldEm
 	attr_accessor :total_players
 	def initialize(players)
 		unless players.to_s =~ /[2-9]/
@@ -18,9 +18,6 @@ end
 
 class Deck
 	include Cards
-
-	attr_reader :show_deck
-
 	def initialize
 		create_deck
 	end
@@ -30,5 +27,8 @@ end
 game = Game.new(5)
 
 deck = Deck.new
-
+deck.shuffle
+puts deck.show_deck
+puts "####"
+deck.shuffle
 puts deck.show_deck
