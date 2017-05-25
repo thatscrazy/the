@@ -12,3 +12,5 @@ run.rb is how the program will start, prompting for number of players per table 
 cards.rb is going to be a generic module that provides a deck of cards that can be shuffled, and presented, but the rest will be left up to the caller. 
 
 spec.rb uses minitest for testing. It will eventually be broken up per the game master class and then for each ruleset that can be loaded up.
+
+holdem.rb this is the first ruleset. Many of the code used to check hands is in the initial commit, before I started over buidling with MiniTest. There are many versions hidden in /backup. 
