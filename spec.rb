@@ -3,6 +3,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require_relative './run.rb'
+require_relative './cards.rb'
 
 describe Game do
 	describe "Total players" do
