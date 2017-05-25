@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative './games.rb'
+require_relative './cards.rb'
 
 class Game
 	attr_accessor :total_players
