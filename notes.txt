@@ -1,0 +1,34 @@
+
+
+
+game = Cards::CardGame.new
+
+player1_hole_cards = game.create_hand(2)
+player2_hole_cards = game.create_hand(2)
+
+board = game.create_hand(5)
+
+player1_hand = (player1_hole_cards + board)
+player2_hand = (player2_hole_cards + board)
+
+HoldEm.hand player1_hand
+
+HoldEm.hand player2_hand
+
+array = [ 20, 31, 43, 57, 60 ]
+HoldEm.hand array
+
+array2 = [70, 30, 40, 50, 60 ]
+HoldEm.hand array2
+
+
+
+
+
+with a group of 7 cards, sort them, then find if there are any instances where
+there are 5 numbers in ascending order
+
+take the first card, and see if the second one is equal to the first card plus 1
+	if card_count + 1
+	else card_count = 0
+if you’re on the third card, stop
