@@ -1,4 +1,5 @@
 module Cards
+	include Enumerable
 	DECK = {
 		SUIT: {
 			SPADES:  {  two:   2,
@@ -66,11 +67,11 @@ module Cards
 	def create_deck
 		@deck = []
 		Cards::DECK[:SUIT].each do | suit, name_and_value |
-			name_and_value.each { | card_name, value | @deck << "#{card_name}(#{value}) of #{suit}" }
+			name_and_value.each { | card_name, value | @deck << "#{value} (#{card_name}) of #{suit}" }
 		end 
 	end
 	def show_deck
-		return @deck
+		@deck.to_a
 	end	
 	def shuffle
 		@deck = @deck.shuffle

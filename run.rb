@@ -27,8 +27,9 @@ end
 game = Game.new(5)
 
 deck = Deck.new
-deck.shuffle
-puts deck.show_deck
-puts "####"
-deck.shuffle
-puts deck.show_deck
+#puts deck.show_deck
+#puts "####"
+#deck.shuffle
+#puts deck.show_deck
+
+# deck.show_deck.each {|n| puts "\"#{n}\","}
