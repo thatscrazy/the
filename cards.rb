@@ -63,11 +63,11 @@ module Cards
 			}
 		}
   }	
-
+  attr_accessor :deck
 	def create_deck
 		@deck = []
 		Cards::DECK[:SUIT].each do | suit, name_and_value |
-			name_and_value.each { | card_name, value | @deck << "#{value} (#{card_name}) of #{suit}" }
+			name_and_value.each { | card_name, value | @deck << [ "#{card_name}_of_#{suit}", "#{value}" ] }
 		end 
 	end
 	def show_deck
