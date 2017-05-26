@@ -28,7 +28,7 @@ game = Game.new(5)
 
 deck = Deck.new
 #puts deck.show_deck
-deck.shuffle
+#deck.shuffle
 # deck.show_deck.each {|n| puts "\"#{n}\","}
 
 hand = []
@@ -39,7 +39,17 @@ hand.sort
 HoldEm.straight?(hand)
 
 
+puts "## hand2 ##"
+hand2 = []
+8.times { hand2 << deck.show_deck.shift }
+hand2.delete_at(-2)
+HoldEm.straight?(hand2)
 
+puts "## hand 3 ##"
+hand3 = []
+8.times { hand3 << deck.show_deck.shift }
+hand3.delete_at(-3)
+HoldEm.straight?(hand3)
 
 
 
