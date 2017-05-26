@@ -84,6 +84,25 @@ describe HoldEm do
 	end
 
 	describe "detect a straight" do
+		it "will detect a low straight" do
+			hand = [ 2, 3, 4, 5, 7, 8 ]
+			assert HoldEm.straight?(hand)
+		end
+
+		it "will detect a high straight" do
+			hand = [ 2, 3, 5, 6, 7, 8, 9 ]
+			assert HoldEm.straight?(hand)
+		end
+
+		it "will detect a middle straight" do
+			hand = [ 2, 2, 3, 5, 6, 7, 8 ]
+			assert HoldEm.straight?(hand)
+		end
+		it "will detect a duped straight" do
+			hand = [ 2, 2, 3, 5, 6, 7, 4 ]
+			assert HoldEm.straight?(hand)
+		end
+
 	end
 
 	describe "detect three-of-a-kind" do
