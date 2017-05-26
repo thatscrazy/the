@@ -18,39 +18,46 @@ module HoldEm
 		sorted_hand.uniq!
     puts sorted_hand
     puts "###"
-		@msg = "no msg"
-		count = 1
-		straight_count = 1 
-		sorted_hand.each do | card |
-			if card == sorted_hand[-1] && straight_count <= 4
-				puts "last card, break"
-				break
-			end
-			if straight_count >= 5 && ( ( card + 1 == sorted_hand[count] ) || card == sorted_hand[-1] )
-					puts "BIG MATCH"
-					straight_count += 1
-					puts "straight_count: #{straight_count}"
-
-					if card == sorted_hand[6]
-						@msg = "#{sorted_hand[6]} high straight, last card"
-					elsif card == sorted_hand[5]
-						@msg = "#{sorted_hand[5]} high straight, second to last card "
-					elsif card == sorted_hand[4]
-						@msg = "#{sorted_hand[4]} high straight, third to last card"
-					end
-			elsif card + 1 == sorted_hand[count] 
-				straight_count += 1
-				puts "match"
-			else
-				straight_count = 1
-			end
-		count += 1
+		
+		first_five = sorted_hand[0..4]
+		middle_five = sorted_hand[1..-2]
+		if middle_five.count < 5
+			middule_five = sorted_hand[1..-1]
+    end
+		last_five = sorted_hand[2..-1]
+		if last_five.count < 5
+			last_five = middle_five
 		end
-
-		if straight_count >= 5
-			puts @msg
-			return true
+		
+		puts "first_five: #{first_five}"
+		first_five_count = 0 
+		first_five_straight_count = 1
+		first_five.each do | card |
+			print "card "
+			p card
+			print "count "
+			p first_five_count
+			print "straight count "
+			p first_five_straight_count
+			print "card + count "
+			p card + first_five_count
+			print "first_five[(first_five_count + 1)] "
+			p first_five[(first_five_count + 1)]
+			puts
+			p "###"
+			if card + 1 == first_five[(first_five_count + 1)]
+					first_five_straight_count += 1
+			end
+			first_five_count += 1
 		end
+		p first_five_straight_count
+
+		if first_five_straight_count == 5
+			puts "!first five straight"
+		end
+		puts "middle_five: #{middle_five}"
+	
+		puts "last_five: #{last_five}"
 	end
 
 	def self.flush?
