@@ -12,9 +12,26 @@ module HoldEm
 	end
 
 	def self.straight? hand
-		#hand.sort
-		hand.each {|n| p n[1] }
+		sorted_hand = []
+		hand.each {|n| sorted_hand << (n[1].to_i) }
+		sorted_hand.sort!
+
+		count = 0
+		straight_count = 0 
+		sorted_hand.each do | card |
+			if card  == sorted_hand[count] 
+				straight_count += 1
+			else 
+				straight_count = 0
 			end
+		count += 1
+		end
+
+		if straight_count >= 5
+			puts "Straight!"
+			return true
+		end
+	end
 
 	def self.flush?
 	end
