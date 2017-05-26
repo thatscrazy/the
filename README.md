@@ -14,3 +14,31 @@ cards.rb is going to be a generic module that provides a deck of cards that can 
 spec.rb uses minitest for testing. It will eventually be broken up per the game master class and then for each ruleset that can be loaded up.
 
 holdem.rb this is the first ruleset. Many of the code used to check hands is in the initial commit, before I started over buidling with MiniTest. There are many versions hidden in /backup. 
+
+This should be the initial setup for any init/run file:
+
+```
+require_relative './holdem.rb'
+require_relative './cards.rb'
+
+class Game
+	include HoldEm
+	attr_accessor :total_players
+	def initialize(players)
+		unless players.to_s =~ /[2-9]/
+			raise "Must be a number, and between 2 and 9"
+			exit
+		else
+		  @total_players = players.to_i
+		end
+	end
+end	
+
+class Deck
+	include Cards
+	def initialize
+		create_deck
+	end
+end
+```
+
